@@ -7,9 +7,12 @@
 
 <h2>Add offer</h2>
 
-<form action="">
+<form method="post" action="api.php/addOffer">
   Name:<br>
   <input type="text" name="name">
+  <br>
+  Type:<br>
+  <input type="text" name="type">
   <br>
   Description:<br>
   <input type="text" name="description">

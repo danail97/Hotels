@@ -2,14 +2,6 @@
 
 require "config/Database.php";
 session_start();
-if(isset($_SESSION['username'])){
-	header("Location: index.html");
-}
-
-if($_POST){
-registerUser();
-}
-
 
 function registerUser(){
 	global $conn;
