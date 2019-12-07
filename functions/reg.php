@@ -17,7 +17,7 @@ function registerUser(){
 	
 	session_start();
 	$_SESSION['username'] = $username;
-	header("Location: /index.php");
+	header("Location: /hotels/index.php");
 	die();
 }
 
@@ -34,14 +34,18 @@ function isAllreadyRegistered($username){
 }
 
 function isAdmin() {
-	global $conn;
-	$username = $_SESSION['username'];
-	$sql = "SELECT * FROM users WHERE username='$username'";
-	$query = $conn->query($sql) or die(errorMessageInJSON('Request unsuccessful'));
-	$row = $query->fetch(PDO::FETCH_ASSOC);
-	extract($row);
-	$userItem = array('id' => $id);
-	return $userItem['id'] == 1;
+	if($_SESSION){
+		global $conn;
+		$username = $_SESSION['username'];
+		$sql = "SELECT * FROM users WHERE username='$username'";
+		$query = $conn->query($sql) or die(errorMessageInJSON('Request unsuccessful'));
+		$row = $query->fetch(PDO::FETCH_ASSOC);
+		extract($row);
+		$userItem = array('id' => $id);
+		return $userItem['id'] == 1;
+	}else{
+		return false;
+	}
 }
 
 function errorMessageInJSON($text){

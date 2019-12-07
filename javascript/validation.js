@@ -19,7 +19,6 @@ function validate(){
 
 function validateOffer() {
 	var errors = document.getElementById("errors");
-	errors.innerHTML = "Майка ти ще еба!";
 	return false;
 }
 

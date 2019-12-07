@@ -51,7 +51,7 @@
 </tbody>
 </table>
 
-<form action='../offers.php' enctype='multipart/form-data' method='post' onsubmit="return myFunction()">
+<form action='./offers.php' enctype='multipart/form-data' method='post' onsubmit="return myFunction()">
 	<button>Резервирай</button>
 </form>
 </body>

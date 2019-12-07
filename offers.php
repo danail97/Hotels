@@ -79,7 +79,6 @@ if(isAdmin()) { ?>
     <div class="w3-third">
       <a href="./offer.php?id='.$value["id"].'"><img src="'.$value["image_url"].'" style="width:100%; height: 200px;"></a>
       <h3>'.$value["name"].'</h3>
-      <p>'.$value["description"].'</p>
     </div>';
   }
 	?>
@@ -94,7 +93,6 @@ if(isAdmin()) { ?>
     <div class="w3-third">
       <a href="./offer.php?id='.$value["id"].'"><img src="'.$value["image_url"].'" style="width:100%; height: 200px;"></a>
       <h3>'.$value["name"].'</h3>
-      <p>'.$value["description"].'</p>
     </div>';
   }
 	?>
@@ -109,7 +107,6 @@ if(isAdmin()) { ?>
     <div class="w3-third">
       <a href="./offer.php?id='.$value["id"].'"><img src="'.$value["image_url"].'" style="width:100%; height: 200px;"></a>
       <h3>'.$value["name"].'</h3>
-      <p>'.$value["description"].'</p>
     </div>';
   }
 	?>
