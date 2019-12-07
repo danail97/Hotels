@@ -29,13 +29,21 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Karma", sans-serif, background-color}
 
 
 <?php 
-  $someJSON = '[{"name":"planina","description":"qko","image_url":"images/mountains/planinski2.jpg", "type": "mountain"},{"name":"more","description":"qko2","image_url":"images/see-hotels/kavacite.jpg", "type": "sea"},{"name":"culture","description":"qko","image_url":"images/cultural/cultural2.jpg", "type": "culture"},{"name":"planina2","description":"qko2","image_url":"images/mountains/planinski1.jpg", "type": "mountain"}]';
+  
+  //REST CALLS
 
-  $someArray = json_decode($someJSON, true);
+  $url = "http://localhost:8000/hotels/api.php/listOffers";
+  $ch = curl_init(); 
+  curl_setopt($ch, CURLOPT_URL, $url);
+  curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+  $output = curl_exec($ch);
+  curl_close($ch);
+  
+  $offers = json_decode($output, true);
   $mountain = array();
   $sea = array();
   $culture = array();
-  foreach ($someArray as $key => $value){
+  foreach ($offers as $key => $value){
 	if($value["type"] === "mountain"){
 		array_push($mountain, $value);
 	} else if($value["type"] === "sea"){
@@ -43,32 +51,14 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Karma", sans-serif, background-color}
 	} else if($value["type"] === "culture"){
 		array_push($culture, $value);
 	}
-  }
-  
-  //REST CALLS
-
-  $url = "http://localhost/api.php/listOffers";
-  $ch = curl_init(); 
-  curl_setopt($ch, CURLOPT_URL, $url);
-  curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-  $output = curl_exec($ch);
-  print_r($output);
-  curl_close($ch);
-
-  // $url = "http://localhost/api.php/listOffers/2";
-  // $ch = curl_init(); 
-  // curl_setopt($ch, CURLOPT_URL, $url);
-  // curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-  // $output = curl_exec($ch);
-  // print_r($output);
-  // curl_close($ch);   
+  }   
 ?>
 
   
 <!-- !PAGE CONTENT! -->
 <div class="w3-main w3-content w3-padding" style="max-width:1200px;margin-top:100px">
 
-<form class="w3-center" action="/addOffer.php">
+<form class="w3-center" action="./addOffer.php">
   <input class="w3-button w3-block w3-teal" type="submit" value="Добави хотел">
 </form>
 
@@ -79,7 +69,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Karma", sans-serif, background-color}
   foreach ($mountain as $key => $value) {
     echo '
     <div class="w3-third">
-      <a href="offers/offer-borovec.html"><img src="'.$value["image_url"].'" style="width:100%; height: 200px;"></a>
+      <a href="./offer.php?id='.$value["id"].'"><img src="'.$value["image_url"].'" style="width:100%; height: 200px;"></a>
       <h3>'.$value["name"].'</h3>
       <p>'.$value["description"].'</p>
     </div>';
@@ -94,7 +84,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Karma", sans-serif, background-color}
   foreach ($sea as $key => $value) {
     echo '
     <div class="w3-third">
-      <a href="offers/offer-borovec.html"><img src="'.$value["image_url"].'" style="width:100%; height: 200px;"></a>
+      <a href="./offer.php?id='.$value["id"].'"><img src="'.$value["image_url"].'" style="width:100%; height: 200px;"></a>
       <h3>'.$value["name"].'</h3>
       <p>'.$value["description"].'</p>
     </div>';
@@ -109,7 +99,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Karma", sans-serif, background-color}
   foreach ($culture as $key => $value) {
     echo '
     <div class="w3-third">
-      <a href="offers/offer-borovec.html"><img src="'.$value["image_url"].'" style="width:100%; height: 200px;"></a>
+      <a href="./offer.php?id='.$value["id"].'"><img src="'.$value["image_url"].'" style="width:100%; height: 200px;"></a>
       <h3>'.$value["name"].'</h3>
       <p>'.$value["description"].'</p>
     </div>';

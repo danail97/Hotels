@@ -12,7 +12,6 @@ function listOffers() {
 
     if($rowCount > 0) {
       $offersArr = array();
-      $offersArr['data'] = array();
 
       while($row = $query->fetch(PDO::FETCH_ASSOC)) {
         extract($row);
@@ -27,7 +26,7 @@ function listOffers() {
           'type' => $type
         );
 
-        array_push($offersArr['data'], $offerItem);
+        array_push($offersArr, $offerItem);
       }
 
       return json_encode($offersArr);
@@ -64,6 +63,7 @@ function getOffer($id) {
 
 function addHotel(){
     global $conn;
+	echo "suuu";
     
     $name = $_POST['name'];
     $description = $_POST['description'];
@@ -75,7 +75,7 @@ function addHotel(){
 	$sql = "INSERT INTO hotel VALUES (null,'$name','$description','$imageURL','$apartmentPrice','$roomPrice','$type')";
 	$query = $conn->query($sql) or die('Request unsuccessful');
 	
-	header("Location: /index.php");
+	header("Location: ./index.php");
 	die();
 }
 ?>

@@ -12,11 +12,11 @@
 
   switch($request_method) {
     case 'GET': 
-        if ($request_uri === '/api.php/listOffers') {
+        if ($request_uri === '/hotels/api.php/listOffers') {
           $offers = listOffers();
           echo $offers;
-        } else if(strpos($request_uri, "/api.php/listOffers") === 0) {
-          $id = str_replace("/api.php/listOffers/","",$request_uri);
+        } else if(strpos($request_uri, "/hotels/api.php/listOffers") === 0) {
+          $id = str_replace("/hotels/api.php/listOffers/","",$request_uri);
           $offer = getOffer($id);
           echo $offer;
         } else {
@@ -25,11 +25,12 @@
         break;
 
     case 'POST': 
-      if ($request_uri === '/api.php/registerUser') {
+      if ($request_uri === '/hotels/api.php/registerUser') {
         registerUser();
-      } else if($request_uri === '/api.php/addOffer') {
+      } else if($request_uri === '/hotels/api.php/addOffer') {
         addHotel();
       } else {
+		  echo $request_uri;
         echo json_encode(array('error' => 'Unrecognized path'));
       }
       break;
