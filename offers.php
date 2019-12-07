@@ -27,8 +27,10 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Karma", sans-serif, background-color}
   </div>
 </div>
 
+
 <?php 
   $someJSON = '[{"name":"planina","description":"qko","image_url":"images/mountains/planinski2.jpg", "type": "mountain"},{"name":"more","description":"qko2","image_url":"images/see-hotels/kavacite.jpg", "type": "sea"},{"name":"culture","description":"qko","image_url":"images/cultural/cultural2.jpg", "type": "culture"},{"name":"planina2","description":"qko2","image_url":"images/mountains/planinski1.jpg", "type": "mountain"}]';
+
   $someArray = json_decode($someJSON, true);
   $mountain = array();
   $sea = array();
@@ -43,7 +45,6 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Karma", sans-serif, background-color}
 	}
   }
   
-
   //REST CALLS
 
   $url = "http://localhost/api.php/listOffers";
@@ -62,6 +63,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Karma", sans-serif, background-color}
   // print_r($output);
   // curl_close($ch);   
 ?>
+
   
 <!-- !PAGE CONTENT! -->
 <div class="w3-main w3-content w3-padding" style="max-width:1200px;margin-top:100px">
