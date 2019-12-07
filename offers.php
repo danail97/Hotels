@@ -48,7 +48,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Karma", sans-serif, background-color}
 <!-- !PAGE CONTENT! -->
 <div class="w3-main w3-content w3-padding" style="max-width:1200px;margin-top:100px">
 
-<form class="w3-center" action="/index.php">
+<form class="w3-center" action="./addOffer.php">
   <input class="w3-button w3-block w3-teal" type="submit" value="Добави хотел"  class="button">
 </form>
 
