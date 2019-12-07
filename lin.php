@@ -74,7 +74,7 @@ function errorMessageInJSON($text){
           <div class="hr"></div>
         </form>
 		
-		 <form class="sign-up-htm" name="register", id="register"  method="post" action="reg.php" onsubmit="return validate()">
+		 <form class="sign-up-htm" name="register", id="register"  method="post" action="api.php/registerUser" onsubmit="return validate()">
 		 <ul id="errors"></ul>
           <div class="group">
             <label for="user" class="label">Username</label>
