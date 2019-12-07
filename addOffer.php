@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-		<link rel="stylesheet" type="text/css" href="css/contacts.css">
+    <link rel="stylesheet" type="text/css" href="css/contacts.css">
+    <script type="text/javascript" src="javascript/validation.js"></script>
 </head>
 <body>
 
 <h2>Add offer</h2>
 
-<form method="post" action="api.php/addOffer">
+<form name="add-offer" method="post" action="api.php/addOffer" onsubmit="return validateOffer()">
+<ul id="errors"></ul>
   Name:<br>
   <input type="text" name="name">
   <br>
