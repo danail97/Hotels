@@ -25,7 +25,7 @@ function registerUser(){
 	
 	session_start();
 	$_SESSION['username'] = $username;
-	header("Location: index.php");
+	header("Location: /index.php");
 	die();
 }
 
