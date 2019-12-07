@@ -26,6 +26,24 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Karma", sans-serif, background-color}
 		<?php } ?>
   </div>
 </div>
+
+<?php $someJSON = '[{"name":"planina","description":"qko","image_url":"images/mountains/planinski2.jpg", "type": "mountain"},{"name":"more","description":"qko2","image_url":"images/see-hotels/kavacite.jpg", "type": "sea"},{"name":"culture","description":"qko","image_url":"images/cultural/cultural2.jpg", "type": "culture"},{"name":"planina2","description":"qko2","image_url":"images/mountains/planinski1.jpg", "type": "mountain"}]';
+  $someArray = json_decode($someJSON, true);
+  $mountain = array();
+  $sea = array();
+  $culture = array();
+  foreach ($someArray as $key => $value){
+	if($value["type"] === "mountain"){
+		array_push($mountain, $value);
+	} else if($value["type"] === "sea"){
+		array_push($sea, $value);
+	} else if($value["type"] === "culture"){
+		array_push($culture, $value);
+	}
+  }
+  
+  
+  ?>
   
 <!-- !PAGE CONTENT! -->
 <div class="w3-main w3-content w3-padding" style="max-width:1200px;margin-top:100px">
@@ -37,63 +55,46 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Karma", sans-serif, background-color}
   <!-- First Photo Grid-->
   <div class="w3-row-padding w3-padding-16 w3-center" id="food">
     <h1 id="planinski" class="w3-center">Планински дестинации</h1>
+  <?php
+  foreach ($mountain as $key => $value) {
+    echo '
     <div class="w3-third">
-      <a href="offers/offer-borovec.html"><img src="images/mountains/planinski1.jpg" style="width:100%; height: 200px;"></a>
-      <h3>Хотел Рила - Боровец</h3>
-      <p>Хотел Рила е най-впечатляващият хотелски комплекс в Боровец.
-Хотелът има отлично местоположение - намира се в самото подножие на ски пистите и на 200 м от Кабинковия лифт, на 50 м от 4-седалков лифт Мартинови бараки и на 50 м от 4-седалков лифт Ситняково Експрес.</p>
-    </div>
-    <div class="w3-third">
-      <a href="offers/offer-pamporovo.html"><img src="images/mountains/planinski2.jpg" style="width:100%; height: 200px;"></a>
-      <h3>Хотел Перелик - Пампорово</h3>
-      <p>Емблематичният за Пампорово хотелски комплекс Перелик е разположен в централната част на курортния комплекс. Дизайнът на хотела следва нова модерна линия съчетала в себе си съвременните тенденции в интериора, които в унисон с красотата на Родопа планина, създават усещане за спокойствие и домашен уют.</p>
-    </div>
-    <div class="w3-third">
-      <a href="offers/offer-bansko.html"><img src="images/mountains/planinski3.jpg" style="width:100%; height: 200px;"></a>
-      <h3>Хотел Стражите - Банско</h3>
-      <p>Сгушен в подножието на Пирин планина, грaд Банско е притегателна сила за български и чуждестранни туристи през целия период на годината. Еднакво атрактивен през четирите сезона на година, градът предлага разнообразни условия за почивка и отдих.
-Хотел Стражите се намира само на 10 мин. пеша от центъра на курорта и на метри от начална станция на Гондола лифт.</p>
-    </div>
+      <a href="offers/offer-borovec.html"><img src="'.$value["image_url"].'" style="width:100%; height: 200px;"></a>
+      <h3>'.$value["name"].'</h3>
+      <p>'.$value["description"].'</p>
+    </div>';
+  }
+	?>
   </div>
   
   <!-- Second Photo Grid-->
   <div class="w3-row-padding w3-padding-16 w3-center">
     <h1 id="morski" class="w3-center">Морски дестинации</h1>
+    <?php
+  foreach ($sea as $key => $value) {
+    echo '
     <div class="w3-third">
-      <a href="offers/offer-kavacite.html"><img src="images/see-hotels/kavacite.jpg" style="width:100%; height: 200px;"></a>
-      <h3>Каваците</h3>
-      <p>Грийн Лайф Бийч Ризорт до Созопол.</p>
-    </div>
-    <div class="w3-third">
-      <a href="offers/offer-primorsko.html"><img src="images/see-hotels/primorsko.jpg" style="width:100%; height: 200px;"></a>
-      <h3>Приморско</h3>
-      <p>Приморско дел Сол</p>
-    </div>
-    <div class="w3-third">
-      <a href="offers/offer-obzor.html"><img src="images/see-hotels/obzor.jpg" style="width:100%; height: 200px;"></a>
-      <h3>Обзор</h3>
-      <p>Хотел Марина Сандс</p>
-    </div>
+      <a href="offers/offer-borovec.html"><img src="'.$value["image_url"].'" style="width:100%; height: 200px;"></a>
+      <h3>'.$value["name"].'</h3>
+      <p>'.$value["description"].'</p>
+    </div>';
+  }
+	?>
   </div>
 
   <!-- Third Photo Grid-->
   <div class="w3-row-padding w3-padding-16 w3-center">
       <h1 id="kulturni" class="w3-center">Културни дестинации</h1>
+    <?php
+  foreach ($culture as $key => $value) {
+    echo '
     <div class="w3-third">
-      <a href="offers/offer-infiniti.html"><img src="images/cultural/cultural1.jpg" style="width:100%; height: 200px;"></a>
-      <h3>Инфинити Хотел Парк и СПА - Велинград</h3>
-      <p>Инфинити Хотел Парк и СПА е на-новият и най-модерен комплекс във Велинград с екслузивен СПА и Wellness център от веригата Victoria SPA.</p>
-    </div>
-    <div class="w3-third">
-      <a href="offers/offer-dvoreca.html"><img src="images/cultural/cultural2.jpg" style="width:100%; height: 200px;"></a>
-      <h3>Хотел Двореца - Велинград</h3>
-      <p>СПА хотел Двореца се намира недалеч от центъра на Велинград, сред красив боров парк. Разположен на един от скатовете на Чепинската котловина, хотелът предлага прекрасен изглед към планината, града и минералните си басейни.</p>
-    </div>
-    <div class="w3-third">
-      <a href="offers/offer-borqna.html"><img src="images/cultural/cultural3.jpg" style="width:100%; height: 200px;"></a>
-      <h3>Къща Боряна</h3>
-      <p>Къща за отдих Боряна се намира в с. Павелско, общ.Чепеларе, обл.Смолянска на 50 км. от град Пловдив по посока пътя за град Смолян; на 27 км. преди курортен комплекс Пампорово и на 19 км. преди град Чепеларе.</p>
-    </div>
+      <a href="offers/offer-borovec.html"><img src="'.$value["image_url"].'" style="width:100%; height: 200px;"></a>
+      <h3>'.$value["name"].'</h3>
+      <p>'.$value["description"].'</p>
+    </div>';
+  }
+	?>
   </div>
 
 <!-- End page content -->

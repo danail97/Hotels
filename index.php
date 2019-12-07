@@ -23,21 +23,21 @@
         </div>
     </div>
 	<div id="content">
-        <a href="offers.html#planinski">
+        <a href="offers.php#planinski">
     	   <img class="picture" src="images/image1.jpg"/>
         </a> 
         <div class="contenttext">
         	<h2>Планински дестинации</h2>
             <p></p>
         </div>
-        <a href="offers.html#morski">
+        <a href="offers.php#morski">
     	   <img class="picture" src="images/image2.jpg"/>
         </a>
         <div class="contenttext">
         <h2>Морски дестинации</h2>
             <p></p>
         </div>
-        <a href="offers.html#kulturni">
+        <a href="offers.php#kulturni">
     	   <img class="picture" src="images/image3.jpg"/>
         </a>
         <div class="contenttext">
