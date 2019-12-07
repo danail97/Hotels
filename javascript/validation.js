@@ -4,7 +4,6 @@ function validate(){
 	var password = document.getElementById("password");
 	var repeated_password = document.getElementById("pass");
 	var errors = document.getElementById("errors");
-	alert(username.value);
 	
 	if(username.value.trim().length < 3 || username.value.trim().length > 10 || !isValidUsername(username.value)){
 		errors.innerHTML = "Невалидно потребителско име!";
@@ -16,6 +15,12 @@ function validate(){
 		errors.innerHTML = "Паролите не съвпадат!";
 		return false;
 	}
+}
+
+function validateOffer() {
+	var errors = document.getElementById("errors");
+	errors.innerHTML = "Майка ти ще еба!";
+	return false;
 }
 
 function hasNumbers(str){

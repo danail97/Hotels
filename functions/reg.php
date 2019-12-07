@@ -33,6 +33,17 @@ function isAllreadyRegistered($username){
 	 }
 }
 
+function isAdmin() {
+	global $conn;
+	$username = $_SESSION['username'];
+	$sql = "SELECT * FROM users WHERE username='$username'";
+	$query = $conn->query($sql) or die(errorMessageInJSON('Request unsuccessful'));
+	$row = $query->fetch(PDO::FETCH_ASSOC);
+	extract($row);
+	$userItem = array('id' => $id);
+	return $userItem['id'] == 1;
+}
+
 function errorMessageInJSON($text){
 	return json_encode(array('error' => $text), JSON_UNESCAPED_UNICODE);
 }
